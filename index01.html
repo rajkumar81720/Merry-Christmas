@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        h1 {
+            font-family: "Codystar", sans-serif;
+            color: white;
+            font-size: 50px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        /* Background Animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Merry Christmas Animated Message */
+        .hero-message {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 1);
+            display: flex;
+            gap: 10px;
+            background: none; /* Remove blackbox background */
+        }
+
+        .hero-message span {
+            opacity: 0;
+            animation: slideIn 2s ease-in-out forwards, glow 1.5s infinite alternate;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Circular Photo Container */
+        .circle-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+
+        .circle-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .circle-container:hover img.default {
+            opacity: 0;
+        }
+
+        .circle-container img.hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .circle-container:hover img.hover {
+            opacity: 1;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Snowfall Animation */
+        .snowfall {
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            overflow: hidden;
+            background: linear-gradient(#1090d0, #2612aa 85%);
+        }
+
+        .snowflake {
+            --small: 3px;
+            --medium: 7px;
+            width: var(--small);
+            height: var(--small);
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: snow 6s linear infinite, wind 10s ease-in-out infinite;
+            top: -10%;
+            left: 10%;
+        }
+
+        .snowflake:nth-child(2n + 3) {
+            width: var(--medium);
+            height: var(--medium);
+        }
+
+        .snowflake:nth-child(1) { left: 25%; animation-delay: 1s; }
+        .snowflake:nth-child(2) { left: 85%; animation-delay: 1.5s; }
+        .snowflake:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .snowflake:nth-child(4) { left: 65%; animation-delay: 2.5s; }
+        .snowflake:nth-child(5) { left: 25%; animation-delay: 3s; }
+        .snowflake:nth-child(6) { left: 95%; animation-delay: 3.5s; }
+        .snowflake:nth-child(7) { left: 55%; animation-delay: 4s; }
+        .snowflake:nth-child(8) { left: 10%; animation-delay: 4.5s; }
+        .snowflake:nth-child(9) { left: 70%; animation-delay: 5s; }
+        .snowflake:nth-child(10) { left: 20%; animation-delay: 5.5s; }
+
+        @keyframes snow {
+            100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes wind {
+            50% {
+                transform: translateX(120px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snowfall">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+
+    <!-- Merry Christmas Message -->
+    <div class="hero-message">
+        <span style="--delay: 1;">M</span>
+        <span style="--delay: 2;">e</span>
+        <span style="--delay: 3;">r</span>
+        <span style="--delay: 4;">r</span>
+        <span style="--delay: 5;">y</span>
+        <span style="--delay: 6;"> </span>
+        <span style="--delay: 7;">C</span>
+        <span style="--delay: 8;">h</span>
+        <span style="--delay: 9;">r</span>
+        <span style="--delay: 10;">i</span>
+        <span style="--delay: 11;">s</span>
+        <span style="--delay: 12;">t</span>
+        <span style="--delay: 13;">m</span>
+        <span style="--delay: 14;">a</span>
+        <span style="--delay: 15;">s</span>
+        <span style="--delay: 16;">!</span>
+    </div>
+
+    <!-- Circular Photo with Hover Effect -->
+    <div class="circle-container">
+        <img src="Atik_True DSLR_20241220_193936_Canon 700d ismart Sajid w.jpg" class="default" alt="Default Photo">
+        <img src="WhatsApp Image 2024-12-20 at 19.50.41_fa7d3e8a.jpg" class="hover" alt="Hover Photo">
+    </div>
+
+    <script>
+        console.log("Merry Christmas with hover effect and snowfall loaded!");
+    </script>
+</body>
+</html>
